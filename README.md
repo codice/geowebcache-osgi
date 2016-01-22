@@ -17,7 +17,7 @@ This project embeds the GeoWebCache (http://geowebcache.org) server into an OSGi
 
 When deployed in an OSGi container, all the normal GeoWebCache functions are available including:
 - WMS/WMTS endpoints (/geowebcache/service)
-- Connections to external tile services configured via RESTful services (/geowebcache/rest)
+- RESTful webservices for GeoWebCache configuration (/geowebcache/rest)
 - Caching of tiles
 - Seeding of tiles 
 
@@ -38,7 +38,7 @@ Change to the top level directory of geowebcache-osgi source distribution.
 mvn install
 ```
 
-## Notes:
+## Notes
 ### Spring Security Config
 WEB-INF/acegi-config.xml was modified to
 - allow anonymous access to GWC REST services

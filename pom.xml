@@ -23,6 +23,23 @@
     <modules>
         <module>geowebcache-server-standalone</module>
     </modules>
+    <scm>
+        <url>https://github.com/codice/geowebcache-osgi.git</url>
+        <connection>scm:git:git://github.com/codice/geowebcache-osgi.git</connection>
+        <developerConnection>scm:git:git://github.com/codice/geowebcache-osgi.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>${snapshots.repository.url}</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <url>${releases.repository.url}</url>
+        </repository>
+    </distributionManagement>
     <repositories>
         <repository>
             <id>codice</id>

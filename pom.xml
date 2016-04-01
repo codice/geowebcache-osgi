@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codice</groupId>
     <artifactId>geowebcache</artifactId>
-    <version>0.6</version>
+    <version>0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>OSGi :: GeoWebCache</name>
 
@@ -27,7 +27,7 @@
         <url>https://github.com/codice/geowebcache-osgi.git</url>
         <connection>scm:git:git://github.com/codice/geowebcache-osgi.git</connection>
         <developerConnection>scm:git:git://github.com/codice/geowebcache-osgi.git</developerConnection>
-        <tag>geowebcache-0.6</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>

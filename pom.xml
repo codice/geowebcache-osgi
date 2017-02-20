@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codice</groupId>
     <artifactId>geowebcache</artifactId>
-    <version>0.7-SNAPSHOT</version>
+    <version>0.7.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>OSGi :: GeoWebCache</name>
 
@@ -53,6 +53,7 @@
                         <pushChanges>false</pushChanges>
                     </configuration>
                 </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

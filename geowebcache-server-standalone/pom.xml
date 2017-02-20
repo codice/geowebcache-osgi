@@ -11,12 +11,14 @@
  *
  **/
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.codice</groupId>
         <artifactId>geowebcache</artifactId>
-        <version>0.7-SNAPSHOT</version>
+        <version>0.7.0-SNAPSHOT</version>
     </parent>
     <groupId>org.codice.geowebcache</groupId>
     <artifactId>geowebcache-server-standalone</artifactId>
@@ -24,14 +26,14 @@
     <packaging>war</packaging>
 
     <properties>
-        <geowebcache.version>1.5.0</geowebcache.version>
+        <geowebcache.version>1.9.1</geowebcache.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.geowebcache</groupId>
             <artifactId>gwc-web</artifactId>
-            <version>1.5.0</version>
+            <version>1.9.1</version>
             <type>war</type>
         </dependency>
         <dependency>
@@ -66,7 +68,8 @@
                         </resource>
                     </webResources>
                     <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF
+                        </manifestFile>
                     </archive>
                 </configuration>
             </plugin>
@@ -90,99 +93,154 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Web-ContextPath>geowebcache</Web-ContextPath>
-                        <Export-Package />
+                        <Export-Package/>
                         <Bundle-ClassPath>
                             WEB-INF/classes,
-							<!--
-							According to Pax Web documentation,
-							"you should have an entry for each jar you have in your lib directory"
-							http://team.ops4j.org/wiki/display/paxweb/OSGi-fy+your+WAR
-							 -->
-                            WEB-INF/lib/acegi-security-1.0.7.jar,
+                            <!--
+                            According to Pax Web documentation,
+                            "you should have an entry for each jar you have in your lib directory"
+                            http://team.ops4j.org/wiki/display/paxweb/OSGi-fy+your+WAR
+                             -->
+                            WEB-INF/lib/annotations-1.3.2.jar,
                             WEB-INF/lib/aopalliance-1.0.jar,
+                            WEB-INF/lib/aws-java-sdk-core-1.9.30.jar,
+                            WEB-INF/lib/aws-java-sdk-kms-1.9.30.jar,
+                            WEB-INF/lib/aws-java-sdk-s3-1.9.30.jar,
                             WEB-INF/lib/com.noelios.restlet-1.0.8.jar,
                             WEB-INF/lib/com.noelios.restlet.ext.servlet-1.0.8.jar,
                             WEB-INF/lib/com.noelios.restlet.ext.simple-1.0.8.jar,
-                            WEB-INF/lib/commons-beanutils-1.7.0.jar,
-                            WEB-INF/lib/commons-codec-1.3.jar,
-                            WEB-INF/lib/commons-collections-3.1.jar,
-                            WEB-INF/lib/commons-dbcp-1.3.jar,
+                            WEB-INF/lib/commons-codec-1.10.jar,
+                            WEB-INF/lib/commons-collections-3.2.2.jar,
+                            WEB-INF/lib/commons-dbcp-1.4.jar,
+                            WEB-INF/lib/commons-fileupload-1.2.1.jar,
                             WEB-INF/lib/commons-httpclient-3.1.jar,
                             WEB-INF/lib/commons-io-2.1.jar,
                             WEB-INF/lib/commons-lang-2.4.jar,
                             WEB-INF/lib/commons-logging-1.1.1.jar,
                             WEB-INF/lib/commons-pool-1.5.4.jar,
+                            WEB-INF/lib/core-0.26.jar,
                             WEB-INF/lib/encoder-1.1.jar,
-                            WEB-INF/lib/ezmorph-1.0.3.jar,
                             WEB-INF/lib/freemarker-2.3.18.jar,
-                            WEB-INF/lib/gt-api-10.0.jar,
-                            WEB-INF/lib/gt-coverage-10.0.jar,
-                            WEB-INF/lib/gt-cql-10.0.jar,
-                            WEB-INF/lib/gt-main-10.0.jar,
-                            WEB-INF/lib/gt-metadata-10.0.jar,
-                            WEB-INF/lib/gt-opengis-10.0.jar,
-                            WEB-INF/lib/gt-referencing-10.0.jar,
-                            WEB-INF/lib/gt-render-10.0.jar,
-                            WEB-INF/lib/gt-wms-10.0.jar,
-                            WEB-INF/lib/gt-xml-10.0.jar,
-                            WEB-INF/lib/guava-11.0.1.jar,
-                            WEB-INF/lib/gwc-arcgiscache-1.5.0.jar,
-                            WEB-INF/lib/gwc-core-1.5.0.jar,
-                            WEB-INF/lib/gwc-diskquota-bdb-1.5.0.jar,
-                            WEB-INF/lib/gwc-diskquota-core-1.5.0.jar,
-                            WEB-INF/lib/gwc-diskquota-jdbc-1.5.0.jar,
-                            WEB-INF/lib/gwc-georss-1.5.0.jar,
-                            WEB-INF/lib/gwc-gmaps-1.5.0.jar,
-                            WEB-INF/lib/gwc-kml-1.5.0.jar,
-                            WEB-INF/lib/gwc-rest-1.5.0.jar,
-                            WEB-INF/lib/gwc-tms-1.5.0.jar,
-                            WEB-INF/lib/gwc-ve-1.5.0.jar,
-                            WEB-INF/lib/gwc-wms-1.5.0.jar,
-                            WEB-INF/lib/gwc-wmts-1.5.0.jar,
+                            WEB-INF/lib/GeographicLib-Java-1.44.jar,
+                            WEB-INF/lib/gt-api-15.1.jar,
+                            WEB-INF/lib/gt-coverage-15.1.jar,
+                            WEB-INF/lib/gt-cql-15.1.jar,
+                            WEB-INF/lib/gt-data-15.1.jar,
+                            WEB-INF/lib/gt-epsg-hsql-15.1.jar,
+                            WEB-INF/lib/gt-jdbc-15.1.jar,
+                            WEB-INF/lib/gt-main-15.1.jar,
+                            WEB-INF/lib/gt-mbtiles-15.1.jar,
+                            WEB-INF/lib/gt-metadata-15.1.jar,
+                            WEB-INF/lib/gt-opengis-15.1.jar,
+                            WEB-INF/lib/gt-referencing-15.1.jar,
+                            WEB-INF/lib/gt-render-15.1.jar,
+                            WEB-INF/lib/gt-wms-15.1.jar,
+                            WEB-INF/lib/gt-xml-15.1.jar,
+                            WEB-INF/lib/guava-17.0.jar,
+                            WEB-INF/lib/gwc-arcgiscache-1.9.1.jar,
+                            WEB-INF/lib/gwc-aws-s3-1.9.1.jar,
+                            WEB-INF/lib/gwc-core-1.9.1.jar,
+                            WEB-INF/lib/gwc-diskquota-bdb-1.9.1.jar,
+                            WEB-INF/lib/gwc-diskquota-core-1.9.1.jar,
+                            WEB-INF/lib/gwc-diskquota-jdbc-1.9.1.jar,
+                            WEB-INF/lib/gwc-distributed-1.9.1.jar,
+                            WEB-INF/lib/gwc-georss-1.9.1.jar,
+                            WEB-INF/lib/gwc-gmaps-1.9.1.jar,
+                            WEB-INF/lib/gwc-kml-1.9.1.jar,
+                            WEB-INF/lib/gwc-rest-1.9.1.jar,
+                            WEB-INF/lib/gwc-sqlite-1.9.1.jar,
+                            WEB-INF/lib/gwc-tms-1.9.1.jar,
+                            WEB-INF/lib/gwc-ve-1.9.1.jar,
+                            WEB-INF/lib/gwc-wms-1.9.1.jar,
+                            WEB-INF/lib/gwc-wmts-1.9.1.jar,
                             WEB-INF/lib/h2-1.1.119.jar,
-                            WEB-INF/lib/imageio-ext-tiff-1.1.7.jar,
-                            WEB-INF/lib/imageio-ext-utilities-1.1.7.jar,
+                            WEB-INF/lib/hazelcast-3.3.1.jar,
+                            WEB-INF/lib/hazelcast-spring-3.3.1.jar,
+                            WEB-INF/lib/hazelcast-wm-3.3.1.jar,
+                            WEB-INF/lib/hsqldb-2.3.0.jar,
+                            WEB-INF/lib/httpclient-4.3.4.jar,
+                            WEB-INF/lib/httpcore-4.3.2.jar,
+                            WEB-INF/lib/imageio-ext-geocore-1.1.15.jar,
+                            WEB-INF/lib/imageio-ext-png-1.1.10.jar,
+                            WEB-INF/lib/imageio-ext-streams-1.1.10.jar,
+                            WEB-INF/lib/imageio-ext-tiff-1.1.15.jar,
+                            WEB-INF/lib/imageio-ext-utilities-1.1.10.jar,
+                            WEB-INF/lib/jackson-annotations-2.3.0.jar,
+                            WEB-INF/lib/jackson-core-2.3.2.jar,
+                            WEB-INF/lib/jackson-databind-2.3.2.jar,
                             WEB-INF/lib/jai_codec-1.1.3.jar,
                             WEB-INF/lib/jai_core-1.1.3.jar,
                             WEB-INF/lib/jai_imageio-1.1.jar,
-                            WEB-INF/lib/jdom-1.0.jar,
+                            WEB-INF/lib/jdom-1.1.3.jar,
                             WEB-INF/lib/je-4.1.10.jar,
                             WEB-INF/lib/jettison-1.0.1.jar,
                             WEB-INF/lib/jgridshift-1.0.jar,
-                            WEB-INF/lib/json-lib-2.1-jdk13.jar,
+                            WEB-INF/lib/joda-time-2.8.1.jar,
                             WEB-INF/lib/jsr-275-1.0-beta-2.jar,
-                            WEB-INF/lib/jsr305-1.3.9.jar,
-                            WEB-INF/lib/jt-utils-1.3.1.jar,
-                            WEB-INF/lib/jt-zonalstats-1.3.1.jar,
-                            WEB-INF/lib/jts-1.12.jar,
+                            WEB-INF/lib/jsr305-3.0.1.jar,
+                            WEB-INF/lib/jt-affine-1.0.9.jar,
+                            WEB-INF/lib/jt-algebra-1.0.9.jar,
+                            WEB-INF/lib/jt-bandcombine-1.0.9.jar,
+                            WEB-INF/lib/jt-bandmerge-1.0.9.jar,
+                            WEB-INF/lib/jt-bandselect-1.0.9.jar,
+                            WEB-INF/lib/jt-binarize-1.0.9.jar,
+                            WEB-INF/lib/jt-border-1.0.9.jar,
+                            WEB-INF/lib/jt-buffer-1.0.9.jar,
+                            WEB-INF/lib/jt-classifier-1.0.9.jar,
+                            WEB-INF/lib/jt-colorconvert-1.0.9.jar,
+                            WEB-INF/lib/jt-colorindexer-1.0.9.jar,
+                            WEB-INF/lib/jt-crop-1.0.9.jar,
+                            WEB-INF/lib/jt-errordiffusion-1.0.9.jar,
+                            WEB-INF/lib/jt-format-1.0.9.jar,
+                            WEB-INF/lib/jt-imagefunction-1.0.9.jar,
+                            WEB-INF/lib/jt-iterators-1.0.9.jar,
+                            WEB-INF/lib/jt-lookup-1.0.9.jar,
+                            WEB-INF/lib/jt-mosaic-1.0.9.jar,
+                            WEB-INF/lib/jt-nullop-1.0.9.jar,
+                            WEB-INF/lib/jt-orderdither-1.0.9.jar,
+                            WEB-INF/lib/jt-piecewise-1.0.9.jar,
+                            WEB-INF/lib/jt-rescale-1.0.9.jar,
+                            WEB-INF/lib/jt-rlookup-1.0.9.jar,
+                            WEB-INF/lib/jt-scale-1.0.9.jar,
+                            WEB-INF/lib/jt-stats-1.0.9.jar,
+                            WEB-INF/lib/jt-translate-1.0.9.jar,
+                            WEB-INF/lib/jt-utilities-1.0.9.jar,
+                            WEB-INF/lib/jt-utils-1.4.0.jar,
+                            WEB-INF/lib/jt-vectorbin-1.0.9.jar,
+                            WEB-INF/lib/jt-warp-1.0.9.jar,
+                            WEB-INF/lib/jt-zonal-1.0.9.jar,
+                            WEB-INF/lib/jt-zonalstats-1.4.0.jar,
+                            WEB-INF/lib/jts-1.13.jar,
                             WEB-INF/lib/log4j-1.2.14.jar,
+                            WEB-INF/lib/log4j-1.2.17.jar,
+                            WEB-INF/lib/minimal-json-0.9.1.jar,
                             WEB-INF/lib/org.json-2.0.jar,
-                            WEB-INF/lib/org.restlet-1.0.8.jar,
+                            WEB-INF/lib/org.restlet-1.0.8-noobjrep.jar,
                             WEB-INF/lib/org.restlet.ext.freemarker-1.0.8.jar,
                             WEB-INF/lib/org.restlet.ext.json-1.0.8.jar,
                             WEB-INF/lib/org.restlet.ext.spring-1.0.8.jar,
                             WEB-INF/lib/org.simpleframework-3.1.3.jar,
-                            WEB-INF/lib/oro-2.0.8.jar,
-                            WEB-INF/lib/postgresql-8.4-701.jdbc3.jar,
-                            WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-asm-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-context-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-context-support-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-core-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-expression-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-jdbc-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-web-3.1.1.RELEASE.jar,
-                            WEB-INF/lib/spring-webmvc-3.1.1.RELEASE.jar,
+                            WEB-INF/lib/pngj-2.0.1.jar,
+                            WEB-INF/lib/postgresql-9.4.1208.jar,
+                            WEB-INF/lib/spring-aop-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-beans-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-context-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-core-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-expression-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-jdbc-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-security-config-4.0.4.RELEASE.jar,
+                            WEB-INF/lib/spring-security-core-4.0.4.RELEASE.jar,
+                            WEB-INF/lib/spring-security-web-4.0.4.RELEASE.jar,
+                            WEB-INF/lib/spring-tx-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-web-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/spring-webmvc-4.2.5.RELEASE.jar,
+                            WEB-INF/lib/sqlite-jdbc-3.8.6.jar,
                             WEB-INF/lib/stax-1.2.0.jar,
                             WEB-INF/lib/stax-api-1.0.1.jar,
-                            WEB-INF/lib/vecmath-1.3.2.jar,
-                            WEB-INF/lib/xercesImpl-2.6.2.jar,
                             WEB-INF/lib/xml-commons-resolver-1.2.jar,
                             WEB-INF/lib/xmlpull-1.1.3.1.jar,
                             WEB-INF/lib/xpp3_min-1.1.4c.jar,
-                            WEB-INF/lib/xstream-1.4.3.jar
+                            WEB-INF/lib/xstream-1.4.7.jar
                         </Bundle-ClassPath>
                         <Import-Package>
                             javax.xml.parsers,
@@ -206,7 +264,11 @@
                             org.w3c.dom.ranges,
                             javax.naming;resolution:=optional,
                             org.apache.log4j,
-                            org.apache.commons.logging
+                            org.apache.commons.logging,
+                            javax.imageio.spi,
+                            javax.imageio.plugins.jpeg,
+                            javax.xml.transform.sax,
+                            javax.xml.transform.stax
                         </Import-Package>
                     </instructions>
                 </configuration>
